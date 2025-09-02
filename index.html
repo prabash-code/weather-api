@@ -23,114 +23,146 @@
 
     </head>
     <body class="body">
+<div class="container mt-2" style="margin-left: 500px;">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 d-flex">
+      <input type="text" id="txt-text-search" class="form-control me-2" placeholder="Search country">
+      <button class="btn btn-primary" onclick="clickAction()">Search</button>
+    </div>
+  </div>
+</div>
 
-        <input type="text " style="margin:10px; border-radius: 5px;" id="txt-text-search"
-            placeholder="search country">
-        <input type="button" style="margin:10px;" class="btn btn-primary"
-            value="Search" onclick="clickAction()">
 
         <div id="name_of_country"
-            style="color: white; margin-left: 900px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            style="color: white; margin-left: 100px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         </div>
-
 
         <div id="climate_image"
-                        style=" margin-left: 900px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-
-            <img src="" alt="">
+            style=" margin-left: 100px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <!-- 
+            <img src="" alt=""> -->
         </div>
+
         <div id="climate_type"
-            style="color: white; margin-left: 900px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            style="color: white; margin-left: 100px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         </div>
+
         <div id="temp_of_country"
-            style="color: white; margin-left: 900px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-
+            style="color: white; margin-left: 100px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         </div>
-        <div class="card-group" style="margin-top: 200px; margin-left: 20px;margin-right: 20px;">
+
+
+                <!-- table -->
+            <div style="color: white; text-align: center; margin-left: 1000px; " class="col-md-6 col-sm-12 col-lg-6">
+            <table id="tbl">
+            </table>
+        </div>
+                <div style="color: white; margin-left: 20px; margin-top: 50px; margin-bottom: 20px;">
+                    <h2>Hourly Weather Forecast</h2>
+        </div>
+
+        <div class="card-group"
+            style="margin-top: 20px; margin-left: 20px;margin-right: 20px;">
 
             <div class="card">
-                <img src="..."  id="ho_photo" alt="...">
+
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title"></h5>
                     <p class="card-text">
-                            <div></div>
-                            <div id="ho_type" style="color: black;"></div>
-                            <div id="ho_time" style="color: black;"></div>
+                        <div>
+                            <div id="ho1_time" style="color: white;"></div>
+                            <div id="ho1_image">
+                            </div>
+                            <div id="ho1_type" style="color:white;"></div>
+                        </div>
                     </p>
-                   
                 </div>
             </div>
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as
-                        a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
+                        <div>
+                         <div id="ho2_time" style="color: white;"></div>
+                            <div id="ho2_image">
+                            </div>
+                            <div id="ho2_type" style="color:white;"></div>
+                        </div>
+
+                    </p>
                 </div>
             </div>
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+               
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting
-                        text below as a natural lead-in to additional content.
-                        This card has even longer content than the first to show
-                        that equal height action.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"> 
+                            <div id="ho3_time" style="color: white;"></div>
+                            <div id="ho3_image">
+                            </div>
+                            <div id="ho3_type" style="color: white;"></div>
+
+                    </p>
                 </div>
             </div>
 
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+               
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting
-                        text below as a natural lead-in to additional content.
-                        This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"> 
+                            <div id="ho4_time" style="color: white;"></div>
+                            <div id="ho4_image">
+                            </div>
+                            <div id="ho4_type" style="color: white;"></div>
+
+                    </p>
+   
                 </div>
             </div>
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as
-                        a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"></h5>
+                            <div id="ho5_time" style="color: white;"></div>
+                            <div id="ho5_image">
+                            </div>
+                            <div id="ho5_type" style="color: white;"></div>
+
+                    </p>
                 </div>
             </div>
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting
-                        text below as a natural lead-in to additional content.
-                        This card has even longer content than the first to show
-                        that equal height action.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"> </h5>
+                            <div id="ho6_time" style="color: white;"></div>
+                            <div id="ho6_image">
+                            </div>
+                            <div id="ho6_type" style="color: white;"></div>
+
+                    </p>
                 </div>
             </div>
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting
-                        text below as a natural lead-in to additional content.
-                        This card has even longer content than the first to show
-                        that equal height action.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last
-                            updated 3 mins ago</small></p>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
+                            <div id="ho7_time" style="color: white;"></div>
+                            <div id="ho7_image">
+                            </div>
+                            <div id="ho7_type" style="color: white;"></div>
+
+                    </p>
                 </div>
             </div>
 
         </div>
         <div id="last_update"></div>
+            <div style="margin: 20px;">
+                <div style="color: white;"><h2>Maps</h2></div>
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d253846.82903735765!2d80.2036821!3d6.2166023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1756577423795!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
+        </div>
+                        
 
         <script src="app.js"></script>
     </body>
