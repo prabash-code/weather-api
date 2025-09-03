@@ -18,7 +18,7 @@ function clickAction() {
     let windDr=document.getElementById("wind-dr");
    
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=19058284957e46e6aa135017252408&q=${country}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=19058284957e46e6aa135017252408&q=${country}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -71,7 +71,7 @@ function clickAction() {
 
      let sunRice=document.getElementById("sunrise");
 
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=19058284957e46e6aa135017252408&q=${country}`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=19058284957e46e6aa135017252408&q=${country}`)
         .then(res => res.json())
         .then(element => {
             console.log(element);
