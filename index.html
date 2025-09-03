@@ -1,169 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-            crossorigin="anonymous">
-        <style>
-    .body{
-        background-image: url('img/background.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: -1;;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card img {
+            width: 50%;
+            max-width: 3rem;
+            height: auto;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body class="body">
 
-</style>
-
-    </head>
-    <body class="body">
-<div class="container mt-2" style="margin-left: 500px;">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4 d-flex">
-      <input type="text" id="txt-text-search" class="form-control me-2" placeholder="Search country">
-      <button class="btn btn-primary" onclick="clickAction()">Search</button>
-    </div>
-  </div>
+<!-- Video background -->
+<div class="video-container">
+    <video src="/img/rainVideo.mp4" autoplay loop muted></video>
 </div>
 
+<!-- Search bar -->
+<div class="container mt-3 d-flex justify-content-center">
+    <div class="row w-100 justify-content-end">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 d-flex">
+            <input type="text" id="txt-text-search" class="form-control me-2" placeholder="Search country">
+            <button class="btn btn-success" onclick="clickAction()">Search</button>
+        </div>
+    </div>
+</div>
 
-        <div id="name_of_country"
-            style="color: white; margin-left: 100px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+<!-- Current Climate Details -->
+<div class="container mt-4">
+    <div class="row g-3">
+
+        <!-- Main info -->
+        <div class="col-12 col-lg-4">
+            <div class="card  border-0 text-white">
+                <div class="card-body text-center">
+                    <div id="name_of_country" style="font-size: 50px; font-weight: bold;"></div>
+                    <div id="climate_image" class="my-1"></div>
+                    <div id="climate_type" style="font-size: 22px;"></div>
+                    <div id="temp_of_country" style="font-size: 22px;"></div>
+                </div>
+            </div>
         </div>
 
-        <div id="climate_image"
-            style=" margin-left: 100px; font-size: 50px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-            <!-- 
-            <img src="" alt=""> -->
-        </div>
-
-        <div id="climate_type"
-            style="color: white; margin-left: 100px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        </div>
-
-        <div id="temp_of_country"
-            style="color: white; margin-left: 100px; font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        </div>
-
-
-                <!-- table -->
-            <div style="color: white; text-align: center; margin-left: 1000px; " class="col-md-6 col-sm-12 col-lg-6">
-            <table id="tbl">
-            </table>
-        </div>
-                <div style="color: white; margin-left: 20px; margin-top: 50px; margin-bottom: 20px;">
-                    <h2>Hourly Weather Forecast</h2>
-        </div>
-
-        <div class="card-group"
-            style="margin-top: 20px; margin-left: 20px;margin-right: 20px;">
-
-            <div class="card">
-
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
-                        <div>
-                            <div id="ho1_time" style="color: white;"></div>
-                            <div id="ho1_image">
-                            </div>
-                            <div id="ho1_type" style="color:white;"></div>
+        <!-- Climate Cards -->
+        <div class="col-12 col-lg-8 ">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="card text-white bg-opacity-10 border-0 h-100 w-100 text-center">
+                        <div class="card-body p-1">
+                            <h5 class="card-title">WIND SPEED</h5>
+                            <img src="/img/windSpeed.png" alt="Weather">
+                            <div id="wind"></div>
                         </div>
-                    </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
-                        <div>
-                         <div id="ho2_time" style="color: white;"></div>
-                            <div id="ho2_image">
-                            </div>
-                            <div id="ho2_type" style="color:white;"></div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="card text-white  bg-opacity-50 border-0 h-100 w-100">
+                        <div class="card-body p-1">
+                            <h5 class="card-title">SUN RISE</h5>
+                            <img src="/img/sunrise.png" alt="Sunrise">
+                            <div id="sunrise"></div>
                         </div>
-
-                    </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-               
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"> 
-                            <div id="ho3_time" style="color: white;"></div>
-                            <div id="ho3_image">
-                            </div>
-                            <div id="ho3_type" style="color: white;"></div>
 
-                    </p>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="card text-white  bg-opacity-100 border-0 h-100 text-center w-120">
+                        <div class="card-body p-1">
+                            <h5 class="card-title">AIR PRESSURE</h5>
+                            <img src="/img/pressure.png" alt="Pressure">
+                            <div id="pressure"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-               
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"> 
-                            <div id="ho4_time" style="color: white;"></div>
-                            <div id="ho4_image">
-                            </div>
-                            <div id="ho4_type" style="color: white;"></div>
-
-                    </p>
-   
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="card text-white  bg-opacity-50 border-0 h-100 text-center w-200">
+                        <div class="card-body p-1">
+                            <h5 class="card-title">HUMIDITY</h5>
+                            <img src="/img/humadity.png" alt="Humidity">
+                            <div id="humidity"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                            <div id="ho5_time" style="color: white;"></div>
-                            <div id="ho5_image">
-                            </div>
-                            <div id="ho5_type" style="color: white;"></div>
 
-                    </p>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="card text-white  bg-opacity-50 border-0 h-100 text-center w-100">
+                        <div class="card-body p-1">
+                            <h5 class="card-title">WIND DIRECTION</h5>
+                            <img src="/img/winD.png" alt="Wind Direction">
+                            <div id="wind-dr"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"> </h5>
-                            <div id="ho6_time" style="color: white;"></div>
-                            <div id="ho6_image">
-                            </div>
-                            <div id="ho6_type" style="color: white;"></div>
 
-                    </p>
+                <!-- Right small service icons -->
+                <div class="col-6 col-md-4 col-lg-2 d-flex flex-column gap-1">
+                    <div class="card   border-0 text-center ">
+                        <img src="/img/weatherLogo.png" class="p-2" alt="Weather">
+                    </div>
+                    <div class="card  bg-opacity-50 border-0 text-center">
+                        <img src="/img/notifLogo.png" class="p-2" alt="Notifications">
+                    </div>
+                    <div class="card  bg-opacity-50 border-0 text-center">
+                        <img src="/img/mapLogo.png" class="p-2" alt="Map">
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">
-                            <div id="ho7_time" style="color: white;"></div>
-                            <div id="ho7_image">
-                            </div>
-                            <div id="ho7_type" style="color: white;"></div>
 
-                    </p>
-                </div>
             </div>
-
         </div>
-        <div id="last_update"></div>
-            <div style="margin: 20px;">
-                <div style="color: white;"><h2>Maps</h2></div>
-        <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d253846.82903735765!2d80.2036821!3d6.2166023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1756577423795!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
-        </div>
-                        
 
-        <script src="app.js"></script>
-    </body>
+    </div>
+</div>
+
+<!-- Table & Map -->
+<div class="container mt-1 table-danger table-dark">
+    <div class="row g-3">
+        <div class="col-12 col-lg-6">
+            <div class="card p-3  bg-opacity-50 text-white ">
+                <h2 class="text-center">WEATHER FORECAST FOR NEXT 7 DAYS</h2>
+                <div class="table-responsive ">
+                    <table id="tbl" class="table-dark table-info   px-3"></table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="card p-3 text-white">
+                <h2 class="text-center">MAP & RADAR</h2>
+                <div class="d-flex justify-content-center">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d253846.82903735765!2d80.2036821!3d6.2166023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1756577423795!5m2!1sen!2slk" 
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hourly Forecast -->
+<div class="container mt-5">
+    <h2 class="text-white mb-3">Hourly Weather Forecast</h2>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-7 g-1">
+        <div class="col">
+            <div class="card  bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho1_time"></div>
+                    <div id="ho1_image"></div>
+                    <div id="ho1_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat for ho2 to ho7 -->
+        <div class="col">
+            <div class="card bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho2_time"></div>
+                    <div id="ho2_image"></div>
+                    <div id="ho2_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho3_time"></div>
+                    <div id="ho3_image"></div>
+                    <div id="ho3_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card  bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho4_time"></div>
+                    <div id="ho4_image"></div>
+                    <div id="ho4_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho5_time"></div>
+                    <div id="ho5_image"></div>
+                    <div id="ho5_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card  bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho6_time"></div>
+                    <div id="ho6_image"></div>
+                    <div id="ho6_type"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card  bg-opacity-50 text-white text-center">
+                <div class="card-body">
+                    <div id="ho7_time"></div>
+                    <div id="ho7_image"></div>
+                    <div id="ho7_type"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("txt-text-search").value = "Colombo";
+    clickAction();
+  });
+</script>
+
+</body>
 </html>
